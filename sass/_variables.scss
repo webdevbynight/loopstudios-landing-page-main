@@ -1,10 +1,14 @@
 @charset "utf-8";
+@use "./base/functions" as *;
+@use "./base/mixins" as *;
 
 // Variables
 :root {
   // Fonts
   --primary-font: Alata, sans-serif;
   --secondary-font: "Josefin Sans", sans-serif;
+  --text-size: #{px2rem(15)};
+  --text-line-height: calc(25 / 15);
 
   // Colours
   --primary: black;
@@ -13,4 +17,12 @@
   --quaternary: rgb(255 255 255 / .5);
   --primary-background: white;
   --secondary-background: black;
+
+  // Sizes, gaps, margins, paddings
+  --outer-inline-spacing: #{px2rem(24)};
+
+  @include css-media-queries($from-breakpoint: dynamic-outer-spacing) {
+    --outer-size: calc(1110 / 1440 * 100vi);
+    --outer-inline-spacing: calc((100vi - var(--outer-size)) / 2);
+  }
 }

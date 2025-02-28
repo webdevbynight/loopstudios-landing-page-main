@@ -1,0 +1,18 @@
+@charset "utf-8";
+@use "../base/mixins" as *;
+
+/** @section General layout */
+body {
+  color: var(--primary);
+  background: var(--secondary);
+  margin-inline: var(--outer-inline-spacing);
+  @include css-media-queries($from-breakpoint: dynamic-outer-spacing) {
+    inline-size: var(--outer-size);
+    margin-inline: auto;
+  }
+}
+#header,
+#footer {
+  padding-inline: var(--outer-inline-spacing);
+  margin-inline: calc(-1 * var(--outer-inline-spacing));
+}
