@@ -1,0 +1,73 @@
+@charset "utf-8";
+@use "../base/mixins" as *;
+@use "../menu-link-hover/mixins" as mixins;
+
+/** @section Footer */
+#footer {
+  color: var(--secondary);
+  background: var(--secondary-background);
+  text-align: center;
+  padding-block: var(--footer-block-padding);
+  nav {
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: var(--footer-inner-gap);
+    }
+    + nav {
+      ul {
+        flex-direction: initial;
+        gap: var(--footer-icons-inner-gap);
+        justify-content: center;
+      }
+    }
+    &:first-of-type {
+      margin-block: var(--footer-links-block-margin);
+    }
+  }
+  ul {
+    list-style: none;
+  }
+  p {
+    color: var(--quaternary);
+    margin-block-start: var(--footer-copyright-block-margin);
+  }
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  @include css-media-queries($from-breakpoint: multicol-footer) {
+    text-align: initial;
+    display: grid;
+    grid-template: repeat(2, auto) / repeat(2, 1fr);
+    grid-auto-flow: column;
+    gap: var(--footer-outer-gap);
+    nav {
+      ul {
+        flex-direction: initial;
+      }
+      + nav {
+        li {
+          display: inline-flex;
+        }
+      }
+      &:first-of-type {
+        margin-block: initial;
+      }
+    }
+    nav + nav,
+    p {
+      justify-self: end;
+      margin-block-start: initial;
+    }
+    a {
+      display: inline-block;
+      padding-block-end: var(--menu-block-padding);
+    }
+  }
+  @media (pointer: fine) {
+    a {
+      @include mixins.menu-link-hover;
+    }
+  }
+}

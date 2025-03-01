@@ -11,7 +11,8 @@
 
 @use "./base/mixins" with (
   $media-queries-breakpoints: (
-    dynamic-outer-spacing: 500
+    dynamic-outer-spacing: 500,
+    multicol-footer: 983
   )
 );
 @use "./variables";
@@ -20,3 +21,4 @@
 @use "./typo/font-face";
 @use "./typo/typo";
 @use "./layout/layout";
+@use "./footer/footer";

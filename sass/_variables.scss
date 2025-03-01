@@ -20,9 +20,22 @@
 
   // Sizes, gaps, margins, paddings
   --outer-inline-spacing: #{px2rem(24)};
+  --menu-block-padding: #{px2rem(10)};
+  --menu-link-hover-border-inline-size: #{px2rem(24)};
+  --menu-link-hover-border-block-size: #{px2rem(2)};
+  --footer-block-padding: #{px2rem(56)};
+  --footer-outer-gap: #{px2rem(14)};
+  --footer-inner-gap: #{px2rem(16)};
+  --footer-links-block-margin: #{px2rem(32)} #{px2rem(48)};
+  --footer-icons-inner-gap: #{px2rem(16)};
+  --footer-copyright-block-margin: #{px2rem(16)};
 
   @include css-media-queries($from-breakpoint: dynamic-outer-spacing) {
     --outer-size: calc(1110 / 1440 * 100vi);
     --outer-inline-spacing: calc((100vi - var(--outer-size)) / 2);
+  }
+  @include css-media-queries($from-breakpoint: multicol-footer) {
+    --footer-block-padding: #{px2rem(44)} #{px2rem(33)};
+    --footer-inner-gap: #{px2rem(32)};
   }
 }

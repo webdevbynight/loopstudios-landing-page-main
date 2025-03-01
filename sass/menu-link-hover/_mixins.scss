@@ -1,0 +1,22 @@
+@charset "utf-8";
+
+@mixin menu-link-hover {
+  position: relative;
+  &::before {
+    background: var(--primary-background);
+    inline-size: var(--menu-link-hover-border-inline-size);
+    block-size: var(--menu-link-hover-border-block-size);
+    position: absolute;
+    inset-inline-start: 50%;
+    inset-block-end: 0;
+    transform: translateX(-50%) scaleX(0);
+    transition: transform 150ms ease-in;
+    content: "";
+  }
+  &:hover,
+  &:focus {
+    &::before {
+      transform: translateX(-50%) scaleX(1);
+    }
+  }
+}
