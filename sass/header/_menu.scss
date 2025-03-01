@@ -16,8 +16,8 @@
   }
   @include css-media-queries($below-breakpoint: visible-menu) {
     font-family: var(--secondary-font);
-    font-size: var(--menu-link-font-size);
-    line-height: var(--menu-link-line-height);
+    font-size: var(--menu-text-size);
+    line-height: var(--menu-text-line-height);
     text-transform: uppercase;
   }
   @include css-media-queries($from-breakpoint: visible-menu) {
