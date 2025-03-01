@@ -1,0 +1,38 @@
+@charset "utf-8";
+@use "../base/mixins" as *;
+@use "../menu-link-hover/mixins" as mixins;
+
+/** @section Menu */
+#menu {
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: var(--menu-gap);
+    list-style: none;
+  }
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  @include css-media-queries($below-breakpoint: visible-menu) {
+    font-family: var(--secondary-font);
+    font-size: var(--menu-link-font-size);
+    line-height: var(--menu-link-line-height);
+    text-transform: uppercase;
+  }
+  @include css-media-queries($from-breakpoint: visible-menu) {
+    grid-area: menu;
+    justify-self: end;
+    ul {
+      flex-direction: initial;
+    }
+    @media (pointer: fine) {
+      a {
+        @include mixins.menu-link-hover;
+        &::before {
+          inset-block-end: var(--menu-link-inset-end);
+        }
+      }
+    }
+  }
+}

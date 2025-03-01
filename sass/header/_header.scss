@@ -1,0 +1,50 @@
+@charset "utf-8";
+@use "../base/mixins" as *;
+
+/** @section Header */
+#header {
+  color: var(--secondary);
+  background: image-set("images/banner-mobile.webp" 1x,
+    "images/banner-mobile@2x.webp" 2x,
+    "images/banner-mobile@3x.webp" 3x,
+    "images/banner-mobile@4x.webp" 4x) no-repeat var(--secondary-background);
+  background-size: cover;
+  box-sizing: border-box;
+  min-block-size: var(--banner-block-size);
+  padding-block: var(--banner-block-padding);
+  p {
+    font-family: var(--secondary-font);
+    font-size: var(--banner-text-size);
+    line-height: var(--banner-text-line-height);
+    text-transform: uppercase;
+    padding: var(--banner-text-padding);
+    margin-block-start: var(--banner-text-block-margin);
+    border: var(--banner-text-border) solid;
+  }
+  @include css-media-queries($below-breakpoint: visible-menu) {
+    h1 {
+      img {
+        transform: scale(.75);
+        transform-origin: left;
+      }
+    }
+  }
+  @include css-media-queries($from-breakpoint: visible-menu) {
+    background-image: image-set("images/banner-desktop.webp" 1x,
+      "images/banner-desktop@2x.webp" 2x,
+      "images/banner-desktop@3x.webp" 3x,
+      "images/banner-desktop@4x.webp" 4x);
+    display: grid;
+    grid-template: var(--banner-first-row) 1fr / auto 1fr;
+    grid-template-areas: ". menu" "text text";
+    row-gap: var(--banner-gap);
+    align-items: center;
+    p {
+      grid-area: text;
+      align-self: start;
+      box-sizing: border-box;
+      max-inline-size: var(--banner-text-inline-size);
+      margin-block-start: initial;
+    }
+  }
+}

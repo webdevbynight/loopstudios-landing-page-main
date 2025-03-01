@@ -9,6 +9,10 @@
   --secondary-font: "Josefin Sans", sans-serif;
   --text-size: #{px2rem(15)};
   --text-line-height: calc(25 / 15);
+  --banner-text-size: #{px2rem(40)};
+  --banner-text-line-height: calc(38 / 40);
+  --menu-text-size: #{px2rem(24)};
+  --menu-text-line-height: calc(25 / 24);
 
   // Colours
   --primary: black;
@@ -18,11 +22,21 @@
   --primary-background: white;
   --secondary-background: black;
 
-  // Sizes, gaps, margins, paddings
+  // Sizes, gaps, margins, paddings, borders
   --outer-inline-spacing: #{px2rem(24)};
+  --banner-gap: #{px2rem(124)};
+  --banner-first-row: #{px2rem(40)};
+  --banner-block-size: #{px2rem(650)};
+  --banner-block-padding: #{px2rem(40)};
+  --banner-text-inline-size: #{px2rem(652)};
+  --banner-text-block-margin: #{px2rem(162)};
+  --banner-text-padding: #{px2rem(26)} #{px2rem(24)} #{px2rem(24)};
+  --banner-text-border: #{px2rem(2)};
+  --menu-gap: #{px2rem(24)};
   --menu-block-padding: #{px2rem(10)};
   --menu-link-hover-border-inline-size: #{px2rem(24)};
   --menu-link-hover-border-block-size: #{px2rem(2)};
+  --menu-link-inset-end: calc(-1 * #{px2rem(8)});
   --footer-block-padding: #{px2rem(56)};
   --footer-outer-gap: #{px2rem(14)};
   --footer-inner-gap: #{px2rem(16)};
@@ -33,6 +47,13 @@
   @include css-media-queries($from-breakpoint: dynamic-outer-spacing) {
     --outer-size: calc(1110 / 1440 * 100vi);
     --outer-inline-spacing: calc((100vi - var(--outer-size)) / 2);
+  }
+  @include css-media-queries($from-breakpoint: visible-menu) {
+    --banner-text-size: #{px2rem(72)};
+    --banner-text-line-height: calc(70 / 72);
+    --banner-block-padding: #{px2rem(64)};
+    --banner-text-padding: #{px2rem(40)};
+    --menu-gap: #{px2rem(32)};
   }
   @include css-media-queries($from-breakpoint: multicol-footer) {
     --footer-block-padding: #{px2rem(44)} #{px2rem(33)};

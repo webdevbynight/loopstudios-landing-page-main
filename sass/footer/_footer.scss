@@ -64,10 +64,13 @@
       display: inline-block;
       padding-block-end: var(--menu-block-padding);
     }
-  }
-  @media (pointer: fine) {
-    a {
-      @include mixins.menu-link-hover;
+    @media (pointer: fine) {
+      a {
+        @include mixins.menu-link-hover;
+        &::before {
+          inset-block-end: 0;
+        }
+      }
     }
   }
 }
