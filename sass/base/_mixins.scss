@@ -438,8 +438,8 @@ $show-media-queries-breakpoints: () !default;
 ///     @include css-text-size-adjust(100%);
 /// }
 @mixin css-text-size-adjust($value: auto) {
-  @if $safari-ios <= 18.1 {
-    -webkit-text-size-adjust: $value; // Safari iOS 18.1-
+  @if $safari-ios <= 18.3 {
+    -webkit-text-size-adjust: $value; // Safari iOS 18.3-
   }
   @if list.index($supported-browsers, firefox-android) and $firefox-android <= 132 {
     -moz-text-size-adjust: $value; // Firefox Android 132-
