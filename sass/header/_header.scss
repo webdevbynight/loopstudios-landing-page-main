@@ -27,11 +27,18 @@
         transform: scale(.75);
         transform-origin: left;
       }
-      @media (scripting: enabled) {
+    }
+    @media (scripting: enabled) {
+      h1 {
         position: relative;
         z-index: 1;
         &:has(~ #menu button.open) {
           position: fixed;
+        }
+      }
+      p {
+        &:has(~ #menu button.open) {
+          margin-block-start: calc(var(--banner-text-block-margin) + var(--banner-first-row));
         }
       }
     }

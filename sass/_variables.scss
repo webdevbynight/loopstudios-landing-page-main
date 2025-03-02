@@ -30,7 +30,7 @@
   // Sizes, gaps, margins, paddings, borders
   --outer-inline-spacing: #{px2rem(24)};
   --banner-gap: #{px2rem(124)};
-  --banner-first-row: #{px2rem(40)};
+  --banner-first-row: #{px2rem(32)};
   --banner-block-size: #{px2rem(650)};
   --banner-block-padding: #{px2rem(40)};
   --banner-text-inline-size: #{px2rem(652)};
@@ -59,6 +59,7 @@
   @include css-media-queries($from-breakpoint: visible-menu) {
     --banner-text-size: #{px2rem(72)};
     --banner-text-line-height: calc(70 / 72);
+    --banner-first-row: #{px2rem(40)};
     --banner-block-padding: #{px2rem(64)};
     --banner-text-padding: #{px2rem(40)};
     --menu-gap: #{px2rem(32)};
