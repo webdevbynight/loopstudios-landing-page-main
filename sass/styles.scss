@@ -15,7 +15,8 @@
     multicol-landing-page: 600,
     visible-menu: 772,
     bigger-banner: 800,
-    multicol-footer: 983
+    multicol-footer: 983,
+    multicol-hero: 1088
   )
 );
 @use "./variables";
@@ -27,3 +28,4 @@
 @use "./header/header";
 @use "./header/menu";
 @use "./footer/footer";
+@use "./landing-page/hero";

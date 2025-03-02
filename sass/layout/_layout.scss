@@ -17,5 +17,8 @@ body {
   margin-inline: calc(-1 * var(--outer-inline-spacing));
 }
 main {
+  display: flex;
+  flex-direction: column;
+  gap: var(--landing-page-gap);
   margin-block: var(--landing-page-block-margin);
 }

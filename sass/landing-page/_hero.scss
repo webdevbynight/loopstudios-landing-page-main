@@ -1,0 +1,44 @@
+@charset "utf-8";
+@use "../base/mixins" as *;
+
+/** @section Hero */
+#hero {
+  display: flex;
+  flex-direction: column;
+  gap: var(--hero-gap);
+  h2,
+  p {
+    text-align: center;
+  }
+  h2 {
+    font-family: var(--secondary-font);
+    font-size: var(--hero-title-size);
+    line-height: 1;
+    font-weight: 300;
+    text-transform: uppercase;
+    margin-block-end: var(--hero-title-block-margin);
+  }
+  p {
+    color: var(--tertiary);
+  }
+  img {
+    min-inline-size: 100%; // Stretch image
+    object-fit: cover;
+  }
+  @include css-media-queries($from-breakpoint: multicol-hero) {
+    flex-direction: initial;
+    gap: initial;
+    section {
+      background: var(--primary-background);
+      align-self: end;
+      padding: var(--hero-section-padding) 0 0 var(--hero-section-padding);
+      margin-inline-start: var(--hero-section-inline-margin);
+    }
+    picture {
+      flex: 1 0 var(--hero-picture-size);
+    }
+    img {
+      min-block-size: 100%; // Strech image in block axis
+    }
+  }
+}

@@ -18,6 +18,7 @@
   --banner-text-line-height: calc(38 / 40);
   --menu-text-size: #{px2rem(24)};
   --menu-text-line-height: calc(25 / 24);
+  --hero-title-size: #{px2rem(32)};
 
   // Colours
   --primary: black;
@@ -28,6 +29,8 @@
   --secondary-background: black;
 
   // Sizes, gaps, margins, paddings, borders
+  --viewport-reference: 1440;
+  --outer-reference: 1110;
   --outer-inline-spacing: #{px2rem(24)};
   --banner-gap: #{px2rem(124)};
   --banner-first-row: #{px2rem(32)};
@@ -52,9 +55,12 @@
   --footer-icons-inner-gap: #{px2rem(16)};
   --footer-copyright-block-margin: #{px2rem(16)};
   --landing-page-block-margin: #{px2rem(96)};
+  --landing-page-gap: #{px2rem(96)};
+  --hero-gap: #{px2rem(48)};
+  --hero-title-block-margin: #{px2rem(16)};
 
   @include css-media-queries($from-breakpoint: dynamic-outer-spacing) {
-    --outer-size: calc(1110 / 1440 * 100vi);
+    --outer-size: calc(var(--outer-reference) / var(--viewport-reference) * 100vi);
     --outer-inline-spacing: calc((100vi - var(--outer-size)) / 2);
   }
   @include css-media-queries($from-breakpoint: visible-menu) {
@@ -71,5 +77,13 @@
   }
   @include css-media-queries($from-breakpoint: multicol-landing-page) {
     --landing-page-block-margin: #{px2rem(160)} #{px2rem(184)};
+    --landing-page-gap: #{px2rem(184)};
+  }
+  @include css-media-queries($from-breakpoint: multicol-hero) {
+    --hero-title-size: #{px2rem(48)};
+    --hero-title-block-margin: #{px2rem(25)};
+    --hero-picture-size: calc(731 / var(--outer-reference) * 100%);
+    --hero-section-inline-margin: calc(161 / var(--outer-reference) * -100%);
+    --hero-section-padding: #{px2rem(96)};
   }
 }
