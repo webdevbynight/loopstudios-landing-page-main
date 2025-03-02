@@ -12,6 +12,7 @@
 @use "./base/mixins" with (
   $media-queries-breakpoints: (
     dynamic-outer-spacing: 500,
+    multicol-landing-page: 600,
     visible-menu: 772,
     bigger-banner: 800,
     multicol-footer: 983

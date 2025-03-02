@@ -16,3 +16,6 @@ body {
   padding-inline: var(--outer-inline-spacing);
   margin-inline: calc(-1 * var(--outer-inline-spacing));
 }
+main {
+  margin-block: var(--landing-page-block-margin);
+}
