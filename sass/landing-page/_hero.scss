@@ -28,6 +28,10 @@
   @include css-media-queries($from-breakpoint: multicol-hero) {
     flex-direction: initial;
     gap: initial;
+    h2,
+    p {
+      text-align: initial;
+    }
     section {
       background: var(--primary-background);
       align-self: end;
