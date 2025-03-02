@@ -4,6 +4,11 @@
 
 // Variables
 :root {
+  // Breakpoints for JS
+  @each $name, $value in $media-queries-breakpoints {
+    --breakpoint-#{$name}: #{$value};
+  }
+
   // Fonts
   --primary-font: Alata, sans-serif;
   --secondary-font: "Josefin Sans", sans-serif;
