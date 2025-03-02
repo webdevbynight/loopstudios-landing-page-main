@@ -7,12 +7,12 @@ if (header && menu) {
   for (const event of ["load", "resize"]) {
     window.addEventListener(event, () => {
       const visibleMenuBreakpoint = breakpoints.get("visible-menu");
+      const buttons = menu.querySelectorAll("button");
       if (window.matchMedia(`(min-width: ${visibleMenuBreakpoint})`).matches) {
-        const buttons = menu.querySelectorAll("button");
         for (const button of buttons) {
           button.remove();
         }
-      } else {
+      } else if (!buttons.length) {
         const bars = 3;
         const width = 24;
         const height = 19;
