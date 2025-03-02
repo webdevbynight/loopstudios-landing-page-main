@@ -25,3 +25,31 @@ export const getBreakpoints = (): Breakpoints => {
   }
   return breakpoints;
 };
+
+/**
+ * Hides the menu list for screen readers on small screens.
+ * @param menuList - The menu list element.
+ */
+export const hideMenuList = (menuList: HTMLUListElement | null): void => {
+  if (menuList) {
+    menuList.setAttribute("aria-hidden", "true");
+    const links = menuList.querySelectorAll("a");
+    for (const link of links) {
+      link.tabIndex = -1;
+    }
+  }
+};
+
+/**
+ * Unhides the menu list for screen readers on small screens.
+ * @param menuList - The menu list element.
+ */
+export const unhideMenuList = (menuList: HTMLUListElement | null): void => {
+  if (menuList) {
+    menuList.removeAttribute("aria-hidden");
+    const links = menuList.querySelectorAll("a");
+    for (const link of links) {
+      link.removeAttribute("tabindex");
+    }
+  }
+};

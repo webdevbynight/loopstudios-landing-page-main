@@ -1,4 +1,4 @@
-import { getBreakpoints } from "./utils.js";
+import { getBreakpoints, hideMenuList, unhideMenuList } from "./utils.js";
 
 const header = document.getElementById("header");
 const menu = document.getElementById("menu");
@@ -52,8 +52,12 @@ if (header && menu) {
           const ariaExpandedState = ariaExpanded === "false" ? "true" : "false";
           this.className = classNameState;
           this.setAttribute("aria-expanded", ariaExpandedState);
+          const menuList = menu.querySelector("ul");
+          if (ariaExpanded === "false") unhideMenuList(menuList);
+          else hideMenuList(menuList);
         });
         menu.insertBefore(button, menu.firstChild);
+        hideMenuList(menu.querySelector("ul"));
       }
     });
   }
