@@ -50,8 +50,11 @@ if (header && menu) {
           const ariaExpanded = this.getAttribute("aria-expanded");
           const classNameState = ariaExpanded === "false" ? "open" : "closed";
           const ariaExpandedState = ariaExpanded === "false" ? "true" : "false";
+          const buttonLabel = ariaExpanded === "false" ? "Hide menu" : "Show menu";
           this.className = classNameState;
           this.setAttribute("aria-expanded", ariaExpandedState);
+          const svg = this.querySelector("svg");
+          if (svg) svg.setAttribute("aria-label", buttonLabel);
           const menuList = menu.querySelector("ul");
           if (ariaExpanded === "false") unhideMenuList(menuList);
           else hideMenuList(menuList);
