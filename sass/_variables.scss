@@ -37,6 +37,9 @@
   --menu-link-hover-border-inline-size: #{px2rem(24)};
   --menu-link-hover-border-block-size: #{px2rem(2)};
   --menu-link-inset-end: calc(-1 * #{px2rem(8)});
+  --menu-button-block-inset: #{px2rem(43)};
+  --menu-button-translation: 7px;
+  --menu-button-animation-duration: 500ms;
   --footer-block-padding: #{px2rem(56)};
   --footer-outer-gap: #{px2rem(14)};
   --footer-inner-gap: #{px2rem(16)};

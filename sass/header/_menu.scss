@@ -3,6 +3,49 @@
 @use "../menu-link-hover/mixins" as mixins;
 
 /** @section Menu */
+@keyframes menu-fade-in {
+  from {
+    opacity: 0;
+  }
+}
+@keyframes menu-item-slide-in {
+  from {
+    transform: translateY(30%);
+  }
+}
+@keyframes menu-icon-toggle-first-bar {
+  from {
+    transform: translateY(calc(-1 * var(--menu-button-translation)));
+  }
+  50% {
+    transform: translateY(0);
+  }
+  to {
+    transform: rotate(45deg);
+  }
+}
+@keyframes menu-icon-toggle-last-bar {
+  from {
+    transform: translateY(var(--menu-button-translation));
+  }
+  50% {
+    transform: translateY(0);
+  }
+  to {
+    transform: rotate(-45deg);
+  }
+}
+@keyframes menu-icon-toggle-middle-bar {
+  50% {
+    transform: scaleX(1);
+  }
+  55% {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(0);
+  }
+}
 #menu {
   ul {
     display: flex;
@@ -19,6 +62,75 @@
     font-size: var(--menu-text-size);
     line-height: var(--menu-text-line-height);
     text-transform: uppercase;
+    @media (scripting: enabled) {
+      position: absolute;
+      inset-inline-end: var(--outer-inline-spacing);
+      inset-block-start: var(--menu-button-block-inset);
+      &:has(button.open) {
+        position: fixed;
+      }
+      ul {
+        display: none;
+      }
+      button {
+        border: none;
+        position: relative;
+        z-index: 1;
+        &.open,
+        &.closed {
+          + ul,
+          + ul li,
+          .icon-bar {
+            animation: var(--menu-button-animation-duration) forwards menu-icon-toggle-middle-bar linear;
+          }
+          + ul {
+            animation-name: menu-fade-in;
+            li {
+              animation-name: menu-item-slide-in;
+            }
+          }
+          .icon-bar {
+            &:first-of-type {
+              animation-name: menu-icon-toggle-first-bar;
+            }
+            &:last-of-type {
+              animation-name: menu-icon-toggle-last-bar;
+            }
+          }
+        }
+        &.open {
+          + ul {
+            background: var(--secondary-background);
+            display: flex;
+            justify-content: center;
+            padding-inline: var(--outer-inline-spacing);
+            position: fixed;
+            inset: 0;
+          }
+        }
+        &.closed {
+          + ul,
+          + ul li,
+          .icon-bar {
+            animation-direction: reverse;
+          }
+        }
+      }
+      svg {
+        display: block;
+      }
+      .icon-bar {
+        stroke-width: 2;
+        stroke: var(--primary-background);
+        transform-origin: center;
+        &:first-of-type {
+          transform: translateY(calc(-1 * var(--menu-button-translation)));
+        }
+        &:last-of-type {
+          transform: translateY(var(--menu-button-translation));
+        }
+      }
+    }
   }
   @include css-media-queries($from-breakpoint: visible-menu) {
     grid-area: menu;

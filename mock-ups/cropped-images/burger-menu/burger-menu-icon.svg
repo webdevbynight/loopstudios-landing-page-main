@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="19" viewBox="0 0 24 19">
+  <style type="text/css">
+    .icon-bar, .icon-close-bar {
+      stroke-width: 2;
+    }
+    .icon-bar {
+      stroke: white;
+    }
+    .icon-bar:nth-of-type(2) {
+      stroke: grey;
+      transform: translateY(-7px);
+    }
+    .icon-bar:nth-of-type(3) {
+      stroke: beige;
+      transform: translateY(7px);
+    }
+    .icon-close-bar {
+      stroke: blue;
+      transform-origin: 50% 50%;
+      transform: rotate(45deg);
+    }
+    .icon-close-bar + .icon-close-bar {
+      stroke: purple;
+      transform: rotate(-45deg);
+    }
+  </style>
+  <defs>
+    <line id="menu-icon-bar" x1="0" y1="9.5" x2="24" y2="9.5"/>
+  </defs>
+  <use class="icon-bar" xlink:href="#menu-icon-bar"/>
+  <use class="icon-bar" xlink:href="#menu-icon-bar"/>
+  <use class="icon-bar" xlink:href="#menu-icon-bar"/>
+  <use class="icon-close-bar" xlink:href="#menu-icon-bar"/>
+  <use class="icon-close-bar" xlink:href="#menu-icon-bar"/>
+</svg>

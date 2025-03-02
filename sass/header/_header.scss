@@ -27,6 +27,13 @@
         transform: scale(.75);
         transform-origin: left;
       }
+      @media (scripting: enabled) {
+        position: relative;
+        z-index: 1;
+        &:has(~ #menu button.open) {
+          position: fixed;
+        }
+      }
     }
   }
   @include css-media-queries($from-breakpoint: visible-menu) {
