@@ -21,8 +21,11 @@
   p {
     color: var(--tertiary);
   }
+  picture {
+    display: flex;
+  }
   img {
-    min-inline-size: 100%; // Stretch image
+    inline-size: 100%;
     object-fit: cover;
   }
   @include css-media-queries($from-breakpoint: multicol-hero) {
@@ -42,7 +45,8 @@
       flex: 1 0 var(--hero-picture-size);
     }
     img {
-      min-block-size: 100%; // Strech image in block axis
+      inline-size: initial;
+      block-size: 100%;
     }
   }
 }
