@@ -19,6 +19,9 @@
   --menu-text-size: #{px2rem(24)};
   --menu-text-line-height: calc(25 / 24);
   --hero-title-size: #{px2rem(32)};
+  --creations-title-size: #{px2rem(32)};
+  --creations-subtitle-size: #{px2rem(24)};
+  --creations-text-size: #{px2rem(14)};
 
   // Colours
   --primary: black;
@@ -27,10 +30,13 @@
   --quaternary: rgb(255 255 255 / .5);
   --primary-background: white;
   --secondary-background: black;
+  --tertiary-background: #d8d8d8;
+  --quaternary-background: linear-gradient(transparent 40.625%, rgb(0 0 0 / .6));
+  --quinary-background: rgb(255 255 255 / .7507);
 
   // Sizes, gaps, margins, paddings, borders
   --viewport-reference: 1440;
-  --outer-reference: 1110;
+  --outer-reference: 1114;
   --outer-inline-spacing: #{px2rem(24)};
   --banner-gap: #{px2rem(124)};
   --banner-first-row: #{px2rem(32)};
@@ -58,9 +64,17 @@
   --landing-page-gap: #{px2rem(96)};
   --hero-gap: #{px2rem(48)};
   --hero-title-block-margin: #{px2rem(16)};
+  --creations-outer-gap: #{px2rem(80)};
+  --creations-inner-gap: #{px2rem(24)};
+  --creations-list-block-margin: #{px2rem(48)} #{px2rem(34)};
+  --creations-list-item-size: #{px2rem(256)};
+  --creations-list-item-padding: #{px2rem(20)};
+  --creations-list-item-inline-padding-end: 50%;
+  --creations-button-block-padding: #{px2rem(13)};
+  --creations-button-inline-padding: #{px2rem(43)} #{px2rem(38)};
 
   @include css-media-queries($from-breakpoint: dynamic-outer-spacing) {
-    --outer-size: calc(var(--outer-reference) / var(--viewport-reference) * 100vi);
+    --outer-size: min(calc(var(--outer-reference) / var(--viewport-reference) * 100vi), calc(var(--outer-reference) / 16 * 1rem));
     --outer-inline-spacing: calc((100vi - var(--outer-size)) / 2);
   }
   @include css-media-queries($from-breakpoint: visible-menu) {
@@ -78,6 +92,10 @@
   @include css-media-queries($from-breakpoint: multicol-landing-page) {
     --landing-page-block-margin: #{px2rem(160)} #{px2rem(184)};
     --landing-page-gap: #{px2rem(184)};
+    --creations-title-size: #{px2rem(48)};
+    --creations-subtitle-size: #{px2rem(32)};
+    --creations-inner-gap: #{px2rem(30)};
+    --creations-list-item-padding: #{px2rem(32)} #{px2rem(40)};
   }
   @include css-media-queries($from-breakpoint: multicol-hero) {
     --hero-title-size: #{px2rem(48)};

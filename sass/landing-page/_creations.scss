@@ -1,0 +1,103 @@
+@charset "utf-8";
+@use "../base/mixins" as *;
+
+/** @section Creations */
+.creations {
+  line-height: 1;
+  text-transform: uppercase;
+  h2,
+  p {
+    text-align: center;
+  }
+  h2 {
+    font-family: var(--secondary-font);
+    font-size: var(--creations-title-size);
+    font-weight: 300;
+  }
+  ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(var(--creations-list-item-size), 1fr));
+    gap: var(--creations-inner-gap);
+    margin-block: var(--creations-list-block-margin);
+    list-style: none;
+    img {
+      inline-size: 100%;
+      object-fit: cover;
+    }
+    a {
+      font-family: var(--secondary-font);
+      font-size: var(--creations-subtitle-size);
+      color: var(--secondary);
+      background: var(--secondary-background);
+      display: grid;
+      grid-template-areas: "card";
+      position: relative;
+      transition: 225ms ease-in;
+      &:hover,
+      &:focus {
+        color: var(--primary);
+        background: var(--tertiary-background);
+        &::before {
+          background: var(--quaternary-background) var(--quinary-background);
+          position: absolute;
+          inset: 0;
+          content: "";
+        }
+        .creation-name {
+          position: relative;
+        }
+      }
+    }
+    picture {
+      display: flex;
+    }
+    picture,
+    .creation-name {
+      grid-area: card;
+    }
+    .creation-name {
+      display: inline-flex;
+      align-items: end;
+      padding: var(--creations-list-item-padding) var(--creations-list-item-inline-padding-end) var(--creations-list-item-padding) var(--creations-list-item-padding);
+    }
+  }
+  p {
+    font-size: var(--creations-text-size);
+    a {
+      display: inline-block;
+      padding-block: var(--creations-button-block-padding);
+      padding-inline: var(--creations-button-inline-padding);
+      box-shadow: 0 0 0 1px var(--secondary-background) inset;
+      transition: 300ms ease-in;
+      &:hover,
+      &:focus {
+        color: var(--secondary);
+        background: var(--secondary-background);
+      }
+    }
+  }
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  @include css-media-queries($from-breakpoint: multicol-landing-page) {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-areas: "title link";
+    row-gap: var(--creations-outer-gap);
+    align-items: center;
+    h2 {
+      text-align: initial;
+    }
+    ul {
+      grid-column: 1 / -1;
+      margin-block: initial;
+      .creation-name {
+        padding: var(--creations-list-item-padding);
+      }
+    }
+    p {
+      grid-area: link;
+    }
+  }
+}
