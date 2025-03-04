@@ -1,5 +1,6 @@
 @charset "utf-8";
 @use "../base/mixins" as *;
+@use "./animations" as *;
 
 /** @section Header */
 #header {
@@ -12,6 +13,9 @@
   box-sizing: border-box;
   min-block-size: var(--banner-block-size);
   padding-block: var(--banner-block-padding);
+  h1 {
+    animation: header-fade-in var(--header-fade-in-duration) forwards ease-in;
+  }
   p {
     font-family: var(--secondary-font);
     font-size: var(--banner-text-size);
@@ -20,6 +24,7 @@
     padding: var(--banner-text-padding);
     margin-block-start: var(--banner-text-block-margin);
     border: var(--banner-text-border) solid;
+    animation: header-paragraph-fade-in 750ms forwards ease-in;
   }
   @include css-media-queries($below-breakpoint: visible-menu) {
     h1 {

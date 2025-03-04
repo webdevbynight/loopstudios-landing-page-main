@@ -1,9 +1,11 @@
 @charset "utf-8";
 @use "../base/mixins" as *;
+@use "./animations" as *;
 @use "../menu-link-hover/mixins" as mixins;
 
 /** @section Menu */
 #menu {
+  animation: header-fade-in var(--header-fade-in-duration) forwards ease-in;
   ul {
     display: flex;
     flex-direction: column;

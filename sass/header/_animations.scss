@@ -1,0 +1,13 @@
+@charset "utf-8";
+
+@keyframes header-fade-in {
+  from {
+    opacity: 0;
+  }
+}
+@keyframes header-paragraph-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(30%);
+  }
+}

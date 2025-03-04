@@ -34,7 +34,7 @@
   --quaternary-background: linear-gradient(transparent 40.625%, rgb(0 0 0 / .6));
   --quinary-background: rgb(255 255 255 / .7507);
 
-  // Sizes, gaps, margins, paddings, borders
+  // Sizes, gaps, margins, paddings, borders, transforms
   --viewport-reference: 1440;
   --outer-reference: 1114;
   --outer-inline-spacing: #{px2rem(24)};
@@ -53,7 +53,6 @@
   --menu-link-inset-end: calc(-1 * #{px2rem(8)});
   --menu-button-block-inset: #{px2rem(43)};
   --menu-button-translation: 7px;
-  --menu-button-transition-duration: 500ms;
   --footer-block-padding: #{px2rem(56)};
   --footer-outer-gap: #{px2rem(14)};
   --footer-inner-gap: #{px2rem(16)};
@@ -72,6 +71,10 @@
   --creations-list-item-inline-padding-end: 50%;
   --creations-button-block-padding: #{px2rem(13)};
   --creations-button-inline-padding: #{px2rem(43)} #{px2rem(38)};
+
+  // Durations
+  --header-fade-in-duration: 600ms;
+  --menu-button-transition-duration: 500ms;
 
   @include css-media-queries($from-breakpoint: dynamic-outer-spacing) {
     --outer-size: min(calc(var(--outer-reference) / var(--viewport-reference) * 100vi), calc(var(--outer-reference) / 16 * 1rem));
