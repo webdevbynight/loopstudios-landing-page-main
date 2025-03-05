@@ -1,13 +1,24 @@
 @charset "utf-8";
 @use "../base/mixins" as *;
+@use "../viewport-active-elements/mixins" as mixins;
 
 /** @section Creations */
 .creations {
   line-height: 1;
   text-transform: uppercase;
   h2,
+  p,
+  ul a {
+    opacity: 0;
+    &.active {
+      @include mixins.opacify-reset-vertical-translation;
+    }
+  }
+  h2,
   p {
     text-align: center;
+    transform: translateY(20%);
+    transition: var(--viewport-active-transition-duration) ease-in;
   }
   h2 {
     font-family: var(--secondary-font);
@@ -32,7 +43,9 @@
       display: grid;
       grid-template-areas: "card";
       position: relative;
-      transition: 225ms ease-in;
+      transform: translateY(5%);
+      transition: 225ms, opacity var(--viewport-active-transition-duration), transform var(--viewport-active-transition-duration);
+      transition-timing-function: ease-in;
       &:hover,
       &:focus {
         color: var(--primary);
@@ -86,6 +99,10 @@
     grid-template-areas: "title link";
     row-gap: var(--creations-outer-gap);
     align-items: center;
+    h2,
+    p {
+      transform: translateY(50%);
+    }
     h2 {
       text-align: initial;
     }

@@ -1,0 +1,18 @@
+@charset "utf-8";
+
+// Opacify
+@mixin opacify {
+  opacity: 1;
+}
+
+// Opacify and reset vertical translation
+@mixin opacify-reset-vertical-translation {
+  @include opacify;
+  transform: translateY(0);
+}
+
+// Opacify and reset horizontal translation
+@mixin opacify-reset-horizontal-translation {
+  @include opacify;
+  transform: translateX(0);
+}
