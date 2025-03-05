@@ -35,6 +35,7 @@
     }
     @media (scripting: enabled) {
       h1 {
+        display: inline-block;
         position: relative;
         z-index: 1;
         &:has(~ #menu button.open) {
