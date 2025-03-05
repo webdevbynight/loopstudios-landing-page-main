@@ -25,6 +25,7 @@
       position: absolute;
       inset-inline-end: var(--outer-inline-spacing);
       inset-block-start: var(--menu-button-block-inset);
+      z-index: 1;
       &:has(button.open) {
         position: fixed;
       }
